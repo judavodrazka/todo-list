@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  --blue_color: hsl(210 75% 35%);
+  --green_color: hsl(130 75% 35%);
+  --red_color: hsl(0 75% 45%);
+}
+
+h1 {
+  margin: 20px;
+  font-size: 2.8rem;
+  color: var(--blue_color);
+}
+
+.todo-item {
+  display: inline;
+  width: 250px;
+}
+
+input[type="input"] {
+  padding: 10px;
+  flex-grow: 2;
+  height: 2.8rem;
+  font-size: 1.5rem;
+  border-radius: 5px 0 0 5px;
+  border: 2px solid var(--blue_color);
+  border-right: none;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: 2px solid var(--blue_color);
+  border-radius: 0 5px 5px 0;
+  width: max(7.5%, 75px);
+  height: 2.8rem;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin: 0;
+  color: var(--blue_color);
+}
+
+.submit-btn:hover {
+  color: white;
+  background: var(--blue_color);
+}
+
+.submit-btn:disabled,
+.submit-btn:disabled:hover {
+  background: hsl(210 0% 60%);
+  color: hsl(210 0% 70%);
+  border: 2px solid hsl(210 0% 70%);
+  cursor: not-allowed;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 25px; */
+}
+
+ul {
+  display: flex;
+  flex-flow: column;
+  list-style: none;
+  margin: 45px 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  display: flex;
+  width: 100%;
+  display: flex;
+  min-height: 3rem;
+  align-items: stretch;
+  flex-flow: nowrap;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-flow: row;
+}
+
+.todotext {
+  padding: 10px;
+  background: white;
+  border: solid var(--blue_color) 2px;
+  border-radius: 5px 0 0 5px;
+  flex-grow: 2;
+  border-right: none;
+  text-align: left;
+}
+
+.todotext.completed {
+  border-color: var(--green_color);
+  text-decoration: line-through;
+  background: hsl(130 75% 95%);
+}
+
+.check-btn {
+  margin-left: auto;
+  border: solid var(--green_color) 2px;
+  border-radius: 0;
+  color: var(--green_color);
+}
+
+.check-btn:hover {
+  background: var(--green_color);
+}
+
+.check-btn.completed {
+  background: var(--green_color);
+  color: white;
+}
+
+.check-btn.completed:hover {
+  background: white;
+  color: var(--green_color);
+}
+
+.delete-btn {
+  border: solid var(--red_color) 2px;
+  border-radius: 0 5px 5px 0;
+  color: var(--red_color);
+}
+
+.delete-btn:hover {
+  background: var(--red_color);
+}
+
+button {
+  font-size: 1.8rem;
+  max-width: max-content;
+  margin: 0;
+  height: 100%;
+  padding: 5px 15px;
+  transition: background 0.2s ease;
+  background: white;
+}
+
+button:hover {
+  color: white;
+}
