@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ToDoItem from "./ToDoItem.js";
 import FilterComp from "./FilterComp.js";
 
+let i = 0;
+
 function InputForm({
   setToDoItems,
   toDoItems,
@@ -9,14 +11,16 @@ function InputForm({
   toDoValue,
   setFilterVisibility,
   filterVisibility,
+  setFilterValue,
+  filterValue,
+  setSorterValue,
+  sorterValue,
 }) {
   const submitHandler = (e) => {
     e.preventDefault();
-    setToDoItems([
-      ...toDoItems,
-      { text: toDoValue, completed: false, id: Math.random() * 1000 },
-    ]);
+    setToDoItems([...toDoItems, { text: toDoValue, completed: false, id: i }]);
     console.log("submitted");
+    i++;
     setToDoValue("");
   };
 
@@ -46,20 +50,40 @@ function InputForm({
         </button>
       </form>
       <FilterComp
+        setToDoItems={setToDoItems}
+        toDoItems={toDoItems}
         setFilterVisibility={setFilterVisibility}
         filterVisibility={filterVisibility}
+        setFilterValue={setFilterValue}
+        filterValue={filterValue}
+        setSorterValue={setSorterValue}
+        sorterValue={sorterValue}
       />
-      <ul>
-        {toDoItems.map((toDoer) => {
-          return (
-            <ToDoItem
-              toDoer={toDoer}
-              key={toDoer.id}
-              setToDoItems={setToDoItems}
-              toDoItems={toDoItems}
-            />
-          );
-        })}
+      <ul className={`${sorterValue === "new-old" ? "new-old" : ""}`}>
+        {
+          useEffect(() => {
+            return toDoItems.map((toDoer) => {
+              return (
+                <ToDoItem
+                  toDoer={toDoer}
+                  key={toDoer.id}
+                  setToDoItems={setToDoItems}
+                  toDoItems={toDoItems}
+                />
+              );
+            });
+          }, [toDoItems])
+          // toDoItems.map((toDoer) => {
+          //   return (
+          //     <ToDoItem
+          //       toDoer={toDoer}
+          //       key={toDoer.id}
+          //       setToDoItems={setToDoItems}
+          //       toDoItems={toDoItems}
+          //     />
+          //   );
+          // })
+        }
       </ul>
     </>
   );

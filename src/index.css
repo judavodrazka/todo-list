@@ -96,10 +96,16 @@ h1 {
 
 .filter-btn {
   margin: 10px 0;
+  border-radius: 5px;
 }
 
 .filter-btn:hover {
   background: black;
+}
+
+select {
+  font-size: 1.2rem;
+  padding: 5px;
 }
 
 /*--- Todo item list ---*/
@@ -187,6 +193,7 @@ button {
   transition: background 0.2s ease;
   background: white;
   cursor: pointer;
+  box-shadow: none;
 }
 
 button:hover {
