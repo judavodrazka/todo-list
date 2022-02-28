@@ -1,6 +1,6 @@
 * {
-  /* margin: 0;
-  padding: 0; */
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -13,11 +13,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: hsl(35 80% 90%);
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  --blue_color: hsl(210 75% 35%);
+  --green_color: hsl(130 75% 35%);
+  --red_color: hsl(0 75% 45%);
 }
 
 #root {
@@ -27,88 +26,169 @@ code {
   text-align: center;
 }
 
-button {
-  margin: 1em 1em;
-  cursor: pointer;
-  color: white;
-  height: 2.5em;
-  width: 6em;
-  font-weight: bold;
-  border-radius: 5px;
-  box-shadow: none;
-  border: 2px solid black;
-  font-size: 1.2em;
-  /* transition: 0.1s ease-in-out; */
-}
-
-.new-mgr-btn {
-  background: hsl(210 75% 45%);
-  box-sizing: content-box;
-  /* transition: 0.1s ease-in; */
-}
-
-.statusToggleButton.Open {
-  background: green;
-  /* transition: 0.1s ease-in; */
-}
-
-.statusToggleButton.Break {
-  background: orange;
-  /* transition: 0.1s ease-in 0.025s; */
-}
-
-.statusToggleButton.Close {
-  background: red;
-  /* transition: 0.1s ease-in; */
-}
-
-.new-mgr-btn:hover {
-  background: hsl(210 75% 35%);
-}
-
-.statusToggleButton.Open:hover {
-  background: darkgreen;
-}
-
-.statusToggleButton.Break:hover {
-  background: darkorange;
-}
-
-.statusToggleButton.Close:hover {
-  background: darkred;
-}
-
-.statusToggleButton:disabled,
-.statusToggleButton:disabled:hover {
-  background: gray;
-  cursor: not-allowed;
-}
-
-ul.todo-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-flow: column;
-}
-
-ul.todo-list hr {
-  width: 100;
-  background: darkgray;
-  margin: 0;
-  padding: 0;
-  height: 1px;
-}
-
-ul.todo-list > li {
-  display: flex;
-  align-items: center;
-}
-
-ul.todo-list > li:first-child {
-  justify-content: flex-start;
+h1 {
+  margin: 20px;
+  font-size: 2.8rem;
+  color: var(--blue_color);
 }
 
 .todo-wrapper {
   width: 80vw;
+}
+
+/*--- Searchbar ---*/
+
+.searchbar-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 25px; */
+}
+
+.searchbar {
+  padding: 10px;
+  flex-grow: 2;
+  height: 2.8rem;
+  font-size: 1.5rem;
+  border-radius: 5px 0 0 5px;
+  border: 2px solid var(--blue_color);
+  border-right: none;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: 2px solid var(--blue_color);
+  border-radius: 0 5px 5px 0;
+  width: max(7.5%, 75px);
+  height: 2.8rem;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin: 0;
+  color: var(--blue_color);
+}
+
+.submit-btn:hover {
+  color: white;
+  background: var(--blue_color);
+}
+
+.submit-btn:disabled,
+.submit-btn:disabled:hover {
+  background: hsl(210 0% 60%);
+  color: hsl(210 0% 70%);
+  border: 2px solid hsl(210 0% 70%);
+  cursor: not-allowed;
+}
+
+/*--- Filter ---*/
+
+.filter-form {
+  display: block;
+}
+
+.filter-form.hidden {
+  display: none;
+}
+
+.filter-btn {
+  margin: 10px 0;
+}
+
+.filter-btn:hover {
+  background: black;
+}
+
+/*--- Todo item list ---*/
+
+ul {
+  display: flex;
+  flex-flow: column;
+  list-style: none;
+  margin: 25px 0;
+  padding: 0;
+}
+
+ul.new-old {
+  flex-flow: column-reverse;
+}
+
+li {
+  margin-bottom: 10px;
+  display: flex;
+  width: 100%;
+  display: flex;
+  min-height: 3rem;
+  align-items: stretch;
+  flex-flow: nowrap;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-flow: row;
+}
+
+.todotext {
+  padding: 10px;
+  background: white;
+  border: solid var(--blue_color) 2px;
+  border-radius: 5px 0 0 5px;
+  flex-grow: 2;
+  border-right: none;
+  text-align: left;
+}
+
+.todotext.completed {
+  border-color: var(--green_color);
+  text-decoration: line-through;
+  background: hsl(130 75% 95%);
+}
+
+.check-btn {
+  margin-left: auto;
+  border: solid var(--green_color) 2px;
+  border-radius: 0;
+  color: var(--green_color);
+}
+
+.check-btn:hover {
+  background: var(--green_color);
+}
+
+.check-btn.completed {
+  background: var(--green_color);
+  color: white;
+}
+
+.check-btn.completed:hover {
+  background: white;
+  color: var(--green_color);
+}
+
+.delete-btn {
+  border: solid var(--red_color) 2px;
+  border-radius: 0 5px 5px 0;
+  color: var(--red_color);
+}
+
+.delete-btn:hover {
+  background: var(--red_color);
+}
+
+button {
+  font-size: 1.8rem;
+  max-width: max-content;
+  margin: 0;
+  height: 100%;
+  padding: 5px 15px;
+  transition: background 0.2s ease;
+  background: white;
+  cursor: pointer;
+}
+
+button:hover {
+  color: white;
 }

@@ -6,6 +6,7 @@ import InputForm from "./components/InputForm.js";
 function App() {
   const [toDoItems, setToDoItems] = useState([]);
   const [toDoValue, setToDoValue] = useState("");
+  const [filterVisibility, setFilterVisibility] = useState(false);
 
   return (
     <div className="todo-wrapper">
@@ -14,6 +15,8 @@ function App() {
         toDoItems={toDoItems}
         setToDoValue={setToDoValue}
         toDoValue={toDoValue}
+        setFilterVisibility={setFilterVisibility}
+        filterVisibility={filterVisibility}
       />
     </div>
   );

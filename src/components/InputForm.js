@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ToDoItem from "./ToDoItem.js";
-import "../InputForm.css";
+import FilterComp from "./FilterComp.js";
 
-function InputForm({ setToDoItems, toDoItems, setToDoValue, toDoValue }) {
+function InputForm({
+  setToDoItems,
+  toDoItems,
+  setToDoValue,
+  toDoValue,
+  setFilterVisibility,
+  filterVisibility,
+}) {
   const submitHandler = (e) => {
     e.preventDefault();
     setToDoItems([
@@ -20,8 +27,9 @@ function InputForm({ setToDoItems, toDoItems, setToDoValue, toDoValue }) {
   return (
     <>
       <h1>To-do list</h1>
-      <form onSubmit={submitHandler}>
+      <form className="searchbar-form" onSubmit={submitHandler}>
         <input
+          className="searchbar"
           type="input"
           placeholder="What do you need to do?"
           name="toDoList"
@@ -37,6 +45,10 @@ function InputForm({ setToDoItems, toDoItems, setToDoValue, toDoValue }) {
           <i className="fas fa-circle-plus"></i>
         </button>
       </form>
+      <FilterComp
+        setFilterVisibility={setFilterVisibility}
+        filterVisibility={filterVisibility}
+      />
       <ul>
         {toDoItems.map((toDoer) => {
           return (
