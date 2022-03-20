@@ -44,10 +44,10 @@ function FilterComp({
   const sortNewToOld = () => {
     setToDoItems(
       toDoItems.sort((a, b) => {
-        if (a.id < b.id) {
+        if (a.id > b.id) {
           return -1;
         }
-        if (a.id > b.id) {
+        if (a.id < b.id) {
           return 1;
         }
       })
@@ -61,9 +61,10 @@ function FilterComp({
       console.log("sorted alphabetically");
     } else if (sorterValue === "old-new") {
       sortOldToNew();
+      console.log("sorted old-new");
     } else if (sorterValue === "new-old") {
       sortNewToOld();
-      console.log("sorted differently");
+      console.log("sorted new-old");
     }
   }, [sorterValue]);
 

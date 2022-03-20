@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ToDoItem from "./ToDoItem.js";
 import FilterComp from "./FilterComp.js";
 
@@ -62,16 +62,18 @@ function InputForm({
       <ul className={`${sorterValue === "new-old" ? "new-old" : ""}`}>
         {
           useEffect(() => {
-            return toDoItems.map((toDoer) => {
-              return (
-                <ToDoItem
-                  toDoer={toDoer}
-                  key={toDoer.id}
-                  setToDoItems={setToDoItems}
-                  toDoItems={toDoItems}
-                />
-              );
-            });
+            // return toDoItems.map((toDoer) => {
+            //   return (
+            //     <ToDoItem
+            //       toDoer={toDoer}
+            //       key={toDoer.id}
+            //       setToDoItems={setToDoItems}
+            //       toDoItems={toDoItems}
+            //     />
+            //   );
+            // });
+            console.log("useEffect ran");
+            return <p>Hello</p>;
           }, [toDoItems])
           // toDoItems.map((toDoer) => {
           //   return (
